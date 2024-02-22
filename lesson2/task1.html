@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Задача 1</h1>
+
+    <p>
+      Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
+    </p>
+    <script>
+      // вводимо неохідні дані у вигляді змінних
+
+        let num1 = parseInt(prompt('введіть перше число', 0));
+        let num2 = parseInt(prompt('введіть друге число', 0));
+
+      // обчислюємо результат
+
+      let sum = num1 + num2;
+      let mult = num1 * num2;
+      let divide = num1 / num2;
+
+      // виводимо результат
+
+      document.write(`Сума двох дійсних чисел = ${sum}, множення двох дійсних чисел = ${mult}, а частка дорівнює - ${divide}`)
+
+    </script>
+</body>
+</html>
