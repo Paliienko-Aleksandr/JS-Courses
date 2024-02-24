@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 3 Задача 5</h1>
+
+    <p>
+      З клавіатури вводиться назва категорії водія 
+      (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). 
+      Вивести на екран назву транспортного засобу, яким він може керувати.
+    </p>
+    <script>
+      // вводимо неохідні дані у вигляді змінних
+
+      let drivingCategory = prompt('введіть категорію транспортного засобу (a,b,c)').toLowerCase();
+      let message;
+        
+      // обчислюємо результат
+        switch (drivingCategory) {
+          case 'a':
+            message = 'Ви можете керувати мотоциклом';
+          break;
+
+          case 'b':
+            message = 'Ви можете керувати легковим автомобілем';
+          break; 
+
+          case 'c':
+            message = 'Ви можете керувати вантажним автомобілем';
+          break;
+
+          default:
+            message = 'Введено некоректні дані';
+          break
+        }
+         
+      // виводимо результат
+
+      document.write(message)
+
+    </script>
+</body>
+</html>

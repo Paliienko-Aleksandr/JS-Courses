@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 3 Задача 2</h1>
+
+    <p>
+      З клавіатури вводиться ціна товару і кількість грошей. 
+      Якщо грошей не вистачає то відмовляємо у покупці, 
+      інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+    </p>
+    <script>
+      // вводимо неохідні дані у вигляді змінних
+
+        let unitPrice = parseFloat(prompt('Введіть вартість товару, 0'));
+        let countMoney = parseFloat(prompt('Введіть суму горошей, яка у вас є'));
+
+      // обчислюємо результат
+
+      let result = countMoney - unitPrice;
+      let message;
+
+      if(result < 0) {
+        message = 'Вибачте, але у вас не вистачає грошей на покупку даного товару'
+      }else if(result === 0) {
+        message = `Вітаємо з покупкою. Залишок на рахунку ${result}`
+      }else if (result >= 4) {
+        message = `Вітаємо з покупкою.Залишок на вашому рахунку ${result} грн і ви можете придбати лотерейні білети по 4 грн за штуку`
+      }
+      
+      // виводимо результат
+
+      document.write(message)
+
+    </script>
+</body>
+</html>
