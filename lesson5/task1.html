@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 5 Задача -2</h1>
+
+    <p>
+      Задача -2. Поступово генерувати 100 випадкових чисел від 1 до 1000. 
+      Підрахувати яких чисел більше: парних чи непарних.
+
+    </p>
+    <script>
+
+      // вводимо неохідні дані у вигляді змінних
+      
+      let randomResult;
+      const minValue = 1;
+      const maxValue = 1000;
+      let pairedNum = 0;
+      let unpairedNum = 0
+
+      // за допомогою циклу for  генеруємо 100 випадкових чисел від 1 до 1000
+
+       for (let i = minValue; i <= maxValue; i++) {
+        randomResult = Math.floor(Math.random() * (maxValue - minValue + minValue)) + minValue;
+          
+          if (randomResult % 2 === 0) {
+            pairedNum ++;
+              }else {
+                unpairedNum ++;
+              }
+          }
+      
+      // виводимо результат
+
+      document.write(`Парних чисел = ${pairedNum}, а непарних = ${unpairedNum}`)
+
+    </script>
+</body>
+</html>

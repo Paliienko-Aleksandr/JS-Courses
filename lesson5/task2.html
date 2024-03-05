@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 5 Задача -1</h1>
+
+    <p>
+      Задача -1. Вивести на екран номери місяців весни і літа (від 3 до 8)
+    </p>
+    <script>
+
+      // вводимо неохідні дані у вигляді змінних
+      
+      const startNumber = 3;
+      const finalNumber = 8;
+
+      // використовуємо цикл for
+
+      for (let i = startNumber; i <= finalNumber; ++i) {
+         if (i <= 5) {
+         document.write(`Spring ${i}<br>`)
+         }else {
+          document.write(`Summer ${i}<br>`)
+         }
+       }
+      
+    </script>
+</body>
+</html>

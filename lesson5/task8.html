@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 5 Задача 8</h1>
+
+    <p>
+      Задача 8. Користувач загадує число. 
+      За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
+    </p>
+    <script>
+
+      // вводимо неохідні дані у вигляді змінних
+      alert('Загадайте число від 1 до 50');
+      const minAttempt = 1;
+      const maxAttempt = 3;
+     
+      
+      // використовуємо цикл for
+
+      for (let i = minAttempt; i <= maxAttempt; i++) {
+        let randomNumber = Math.floor(Math.random() * 50 + 1);
+        let result = confirm(`Це число ${randomNumber}?`);
+          if (result) {
+            confirm('Ми вгадали!!!') 
+            break
+          }
+      }
+
+    </script>
+</body>
+</html>
