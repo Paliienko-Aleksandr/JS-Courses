@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 6 Задача 3</h1>
+
+    <p>
+      З клавіатури вводиться початкове знчення суми. 
+      Поки сума є меншою за 100 додавати до неї числа, які вводяться з клавіатури.
+
+    </p>
+    <script>
+
+      const initialValue = parseFloat(prompt('Введіть початкове значення'));
+      const finalAmount = 100;
+      let totalSum = initialValue;
+
+      while(totalSum < finalAmount) {
+        let intermediateValue = parseFloat(prompt('Введіть будь-яке число від 0 до 99'));
+        totalSum += intermediateValue;
+        document.write(`Загальна сума = ${totalSum}`)
+      }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 6 Задача 10</h1>
+
+    <p>
+      З клавіатури вводиться вартість одиниці товару. 
+      Поки користувач не введе суму грошей, яка достатня для купівлі товару або не відмовиться від купівлі давати можливість вводити суму грошей.
+    </p>
+    <script>
+      
+      const unitPrice = parseFloat(prompt('Введіть ціну товара:'));
+      
+      if (!isNaN(unitPrice)) {
+        let userMoney = 0;
+
+         while(userMoney < unitPrice) {
+            userMoney = parseFloat(prompt(`Введіть суму. Ціна товару:  ${unitPrice}`));
+
+              if (userMoney >= unitPrice) {
+                alert('Покупка успішно здійснена')
+              }else if (userMoney < unitPrice) {
+
+               let res = confirm(`недостатньо коштів. не вистачає ${unitPrice - userMoney} UAH. Продовжити?`);
+                if(res === true) continue
+                else break
+                
+              }else {
+                alert('недостатньо грошей')
+              }
+          }
+      }
+    </script>
+</body>
+</html>

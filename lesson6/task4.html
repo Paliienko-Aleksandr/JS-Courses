@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 6 Задача 4</h1>
+
+    <p>
+      З клавіатури поступово вводяться числа. Знайти суму перших N парних чисел.
+    </p>
+    <script>
+
+        let n = parseInt(prompt('Введіть кількість чисел N:'));
+        let sum = 0;
+        let count = 0;
+
+        while (count < n) {
+            let userNumber = parseInt(prompt('Введіть число:'));
+
+            if (userNumber % 2 === 0) {
+                sum += userNumber;
+                count++;
+            }
+        }
+
+        document.write(`Сума перших ${n} парних чисел: ${sum}`);
+
+    </script>
+</body>
+</html>

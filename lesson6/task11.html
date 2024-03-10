@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 6 Задача 11</h1>
+
+    <p>
+      Комп’ютер загадує випадкове число від 1 до 10. 
+      Вгадати число шляхом введеня можливих варіантів. В кінці вивести кількість спроб користувача.
+
+    </p>
+    <script>
+
+      const randomNumber = Math.floor(Math.random()*10) + 1;
+      console.log(randomNumber)
+      let attemptCount = 0;
+      let guessed = false;
+
+        while(!guessed) {
+          const userGuess = parseInt(prompt('Введіть будь-яке число від 1 до 10, та спробуйте вгадати число...'));
+
+            if (userGuess !== randomNumber) {
+              attemptCount++
+            }else if (userGuess === randomNumber) {
+              guessed = true;
+              alert(`Ви вгадали чило ${randomNumber}`);
+              document.write(`Було використано ${attemptCount} спроб`)
+            }else {
+              alert('Спробуйте ще раз')
+            }
+        }
+
+    </script>
+</body>
+</html>
