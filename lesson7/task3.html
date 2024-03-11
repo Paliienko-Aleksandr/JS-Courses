@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 7 Задача 3</h1>
+
+  <p>
+    Створити окремі функції, які для 4 чисел знаходять:
+    1)суму;
+    2)добуток;
+    3)середнє арифметичне;
+    4)мінімальне значення. 
+  </p>
+  <script>
+
+    const userFirstNumber = parseInt(prompt('Введіть перше значення'));
+    const userSecondNumber = parseInt(prompt('Введіть друге значення'));
+    const userThirdNumber = parseInt(prompt('Введіть третє значення'));
+    const userFourNumber = parseInt(prompt('Введіть четверте значення'));
+
+    let result;
+
+    function sum() {
+      result = userFirstNumber + userSecondNumber + userThirdNumber + userFourNumber;
+      document.write(`Сума чисел = ${result}<br>`)
+      return result
+    }
+
+    sum(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
+
+    function mult() {
+      result = userFirstNumber * userSecondNumber * userThirdNumber * userFourNumber;
+      document.write(`Добуток чисел = ${result}<br>`)
+      return result
+    }
+
+    mult(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
+
+    function midValue() {
+      result = (userFirstNumber + userSecondNumber + userThirdNumber + userFourNumber)/4;
+      document.write(`Середнє значення чисел = ${result}<br>`)
+      return result.toFixed(2)
+    }
+
+    midValue(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
+
+    function minValue() {
+      result = Math.min(userFirstNumber, userSecondNumber, userThirdNumber, userFourNumber);
+      document.write(`Мінімальне число = ${result}<br>`)
+      return result
+    }
+
+    minValue(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
+
+  </script>
+</body>
+
+</html>

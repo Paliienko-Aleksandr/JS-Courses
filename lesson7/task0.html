@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Урок 7 Задача 0</h1>
+
+    <p>
+      Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+    </p>
+    <script>
+
+      const numberOfMonth = parseInt(prompt('Введіть номер місяца'))
+      let resultTime;
+     
+      function getTimeOfYear() {
+      if (numberOfMonth >= 1 && numberOfMonth <= 12) {
+        switch(numberOfMonth) {
+          case 12:
+          case 1:
+          case 2:
+          resultTime = "Це зима";
+          document.write(`${resultTime}`);
+          break
+
+          case 3:
+          case 4:
+          case 5:
+          resultTime = "Це весна";
+          document.write(`${resultTime}`);
+          break
+
+          case 6:
+          case 7:
+          case 8:
+          resultTime = "Це літо";
+          document.write(`${resultTime}`);
+          break
+
+          case 9:
+          case 10:
+          case 11:
+          resultTime = "Це осінь";
+          document.write(`${resultTime}`);
+          break
+        }
+      }else {
+        document.write(`Ведіть коректний номер місяця`)
+      }
+     }
+     getTimeOfYear(numberOfMonth)
+     
+    </script>
+</body>
+</html>

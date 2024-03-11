@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 7 Задача 10</h1>
+
+  <p>
+    Задача 10. Дано покази температур (довільна кількість). 
+    Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.
+  </p>
+  <script>
+
+   function getNegativeParameter() {
+     for (let i = 0; i < temperatureSet.length; i++) {
+        if (temperatureSet[i] > 0) {
+          count++
+          sumPositiveTemperature += temperatureSet[i];
+          averageValue = (sumPositiveTemperature/count).toFixed(2)
+        }
+     }
+     console.log(count)
+   }
+
+   const temperatureSet = [-10, 25, 23, 15, -2, -0.5, 24, 32, 0];
+   let count = 0;
+   let sumPositiveTemperature = 0;
+   let averageValue = 0
+   const negativeTemperature = getNegativeParameter(temperatureSet);
+   document.write(`Середнє значення додатних чисел = ${averageValue}`)
+
+  </script>
+</body>
+
+</html>

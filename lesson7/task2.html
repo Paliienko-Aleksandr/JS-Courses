@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 7 Задача 2</h1>
+
+  <p>
+    Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+  </p>
+  <script>
+
+    const userWeekDay = parseInt(prompt('Введіть день тижня'));
+    let result;
+
+    function whatDay() {
+      if (userWeekDay >= 1 && userWeekDay <= 7) {
+        if (userWeekDay === 6 || userWeekDay === 7) {
+          result = 'Працювати неможна!!! Сьогодні вихідний день';
+          alert(`${result}`)
+        } else {
+          result = 'Працювати!!! Сьогодні робочий день';
+          alert(`${result}`)
+        }
+      } else {
+        alert('Введіть коректний день тижня')
+      }
+    }
+    whatDay(userWeekDay)
+
+  </script>
+</body>
+
+</html>

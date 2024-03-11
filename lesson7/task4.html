@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 7 Задача 4</h1>
+
+  <p>
+    Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: 
+    кількість парних, кількість додатних, кількість більших за 100.
+  </p>
+  <script>
+
+    const userFirstNumber = parseInt(prompt('Введіть перше значення'));
+    const userSecondNumber = parseInt(prompt('Введіть друге значення'));
+    const userThirdNumber = parseInt(prompt('Введіть третє значення'));
+
+    let pairedNumCount = 0;
+    let positiveNumbersCount = 0;
+    let numbersMore = 0;
+
+    function setOfValues() {
+
+      // first number
+
+      if (userFirstNumber % 2 === 0) 
+        pairedNumCount++;
+
+      if (userFirstNumber > 0)
+        positiveNumbersCount++;
+
+      if (userFirstNumber > 100)
+        numbersMore++;
+
+        // second number
+
+      if (userSecondNumber % 2 === 0) 
+        pairedNumCount++;
+
+      if (userSecondNumber > 0)
+        positiveNumbersCount++;
+
+      if (userSecondNumber > 100)
+        numbersMore++;
+
+        // third number
+
+        if (userThirdNumber % 2 === 0) 
+        pairedNumCount++;
+
+      if (userThirdNumber > 0)
+        positiveNumbersCount++;
+
+      if (userThirdNumber > 100)
+        numbersMore++;
+
+        document.write(`Кількість парних чисел = ${pairedNumCount}<br> 
+                        Кількість додатних чисел = ${positiveNumbersCount}<br>
+                        Кількість більших за 100 = ${numbersMore}
+    `)
+    }
+
+    setOfValues(userFirstNumber,userSecondNumber,userThirdNumber)
+
+  </script>
+</body>
+
+</html>
