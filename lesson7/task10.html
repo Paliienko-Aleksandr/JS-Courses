@@ -15,24 +15,29 @@
     Задача 10. Дано покази температур (довільна кількість). 
     Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.
   </p>
+  
   <script>
 
-   function getNegativeParameter() {
-     for (let i = 0; i < temperatureSet.length; i++) {
-        if (temperatureSet[i] > 0) {
+  const setTemperaturesValues = parseInt(prompt('Введіть кількість показів температури'));
+  const arrValues = [];
+
+  function getPositivetiveParameter() {
+    for (let i = 0; i < setTemperaturesValues; i++) {
+      arrValues.push(Math.random() * setTemperaturesValues + 1);
+
+      for (let i = 0; i < arrValues.length; i++)
+      if (arrValues[i] > 0) {
           count++
-          sumPositiveTemperature += temperatureSet[i];
+          sumPositiveTemperature += arrValues[i];
           averageValue = (sumPositiveTemperature/count).toFixed(2)
         }
-     }
-     console.log(count)
-   }
+    }
+  }
 
-   const temperatureSet = [-10, 25, 23, 15, -2, -0.5, 24, 32, 0];
    let count = 0;
    let sumPositiveTemperature = 0;
    let averageValue = 0
-   const negativeTemperature = getNegativeParameter(temperatureSet);
+   const negativeTemperature = getPositivetiveParameter(arrValues);
    document.write(`Середнє значення додатних чисел = ${averageValue}`)
 
   </script>
