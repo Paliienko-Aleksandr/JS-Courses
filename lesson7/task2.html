@@ -16,23 +16,26 @@
   </p>
   <script>
 
-    const userWeekDay = parseInt(prompt('Введіть день тижня'));
-    let result;
-
     function whatDay() {
+
+      let result;
+
       if (userWeekDay >= 1 && userWeekDay <= 7) {
         if (userWeekDay === 6 || userWeekDay === 7) {
           result = 'Працювати неможна!!! Сьогодні вихідний день';
-          alert(`${result}`)
         } else {
           result = 'Працювати!!! Сьогодні робочий день';
-          alert(`${result}`)
         }
-      } else {
-        alert('Введіть коректний день тижня')
+        } else {
+          result = 'Введіть коректний день тижня';
+        }
+        return result
       }
-    }
-    whatDay(userWeekDay)
+
+    const userWeekDay = parseInt(prompt('Введіть день тижня'));
+    let workingDayOrNot = whatDay(userWeekDay)
+
+    alert(workingDayOrNot)
 
   </script>
 </body>

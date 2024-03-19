@@ -17,19 +17,23 @@
   </p>
   <script>
 
-   function getNegativeParameter() {
+   function getNegativeParameter(...temperatureSet) {
+
+    let countNegativeTemperature = 0;
+
      for (let i = 0; i < temperatureSet.length; i++) {
         if (temperatureSet[i] < 0) {
-          count++
+          countNegativeTemperature++
         }
      }
-     console.log(count)
+     return countNegativeTemperature
    }
 
-   const temperatureSet = [-10, 25, 23, 15, -2, -0.5, 24, 32, 0];
-   let count = 0;
-   const negativeTemperature = getNegativeParameter(temperatureSet);
-   document.write(`Показник з від’ємними значеннями = ${count}`)
+   let temperatureSet = [-10, 25, 23, 15, -2, -0.5, 24, 32, 0];
+   const setOfnegativeTemperature = getNegativeParameter(...temperatureSet)
+   
+   const negativeTemperature = getNegativeParameter(...temperatureSet);
+   document.write(`Показник з від’ємними значеннями = ${setOfnegativeTemperature}`)
 
   </script>
 </body>

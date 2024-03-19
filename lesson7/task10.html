@@ -18,27 +18,35 @@
   
   <script>
 
-  const setTemperaturesValues = parseInt(prompt('Введіть кількість показів температури'));
-  const arrValues = [];
-
-  function getPositivetiveParameter() {
-    for (let i = 0; i < setTemperaturesValues; i++) {
-      arrValues.push(Math.random() * setTemperaturesValues + 1);
-
-      for (let i = 0; i < arrValues.length; i++)
-      if (arrValues[i] > 0) {
-          count++
-          sumPositiveTemperature += arrValues[i];
-          averageValue = (sumPositiveTemperature/count).toFixed(2)
-        }
+    function getTemperatureArray(firstDayTemperature,secondDayTemperature,thirdDayTemperature) {
+      const tempValues = [];
+      tempValues.push(firstDayTemperature,secondDayTemperature,thirdDayTemperature)
+        return tempValues
     }
-  }
 
-   let count = 0;
-   let sumPositiveTemperature = 0;
-   let averageValue = 0
-   const negativeTemperature = getPositivetiveParameter(arrValues);
-   document.write(`Середнє значення додатних чисел = ${averageValue}`)
+    function getAveragePositiveValues(temperatureArray) {
+      let positiveTemperature = [];
+      let averageValues = 0;
+
+        for (temp of temperatureArray) {
+          if (temp > 0)  {
+            positiveTemperature.push(temp)
+          }
+        }
+        for (value of positiveTemperature) {
+          averageValues += value/positiveTemperature.length
+        }
+        return averageValues
+    }
+
+    const firstDayTemperature = parseFloat(prompt('Введіть показник температури за перший день'));
+    const secondDayTemperature = parseFloat(prompt('Введіть показник температури за другий день'));
+    const thirdDayTemperature = parseFloat(prompt('Введіть показник температури за третій день'))
+
+    const temperatureArray = getTemperatureArray(firstDayTemperature,secondDayTemperature,thirdDayTemperature);
+    const averagePositiveValues = getAveragePositiveValues(temperatureArray);
+
+    document.write(`Середнє значення додатних показників = ${averagePositiveValues}`)
 
   </script>
 </body>

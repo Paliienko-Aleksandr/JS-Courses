@@ -20,44 +20,36 @@
   </p>
   <script>
 
-    const userFirstNumber = parseInt(prompt('Введіть перше значення'));
-    const userSecondNumber = parseInt(prompt('Введіть друге значення'));
-    const userThirdNumber = parseInt(prompt('Введіть третє значення'));
-    const userFourNumber = parseInt(prompt('Введіть четверте значення'));
-
-    let result;
-
-    function sum() {
-      result = userFirstNumber + userSecondNumber + userThirdNumber + userFourNumber;
-      document.write(`Сума чисел = ${result}<br>`)
-      return result
+    function sum(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber) {
+      return userFirstNumber + userSecondNumber + userThirdNumber + userFourNumber;
     }
 
-    sum(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
-
-    function mult() {
-      result = userFirstNumber * userSecondNumber * userThirdNumber * userFourNumber;
-      document.write(`Добуток чисел = ${result}<br>`)
-      return result
+    function mult(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber) {
+      return userFirstNumber * userSecondNumber * userThirdNumber * userFourNumber;
     }
 
-    mult(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
-
-    function midValue() {
-      result = (userFirstNumber + userSecondNumber + userThirdNumber + userFourNumber)/4;
-      document.write(`Середнє значення чисел = ${result}<br>`)
-      return result.toFixed(2)
+    function average(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber) {
+      return (userFirstNumber + userSecondNumber + userThirdNumber + userFourNumber)/4;
     }
 
-    midValue(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
-
-    function minValue() {
-      result = Math.min(userFirstNumber, userSecondNumber, userThirdNumber, userFourNumber);
-      document.write(`Мінімальне число = ${result}<br>`)
-      return result
+    function minValue(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber) {
+      return Math.min(userFirstNumber, userSecondNumber, userThirdNumber, userFourNumber);
     }
 
-    minValue(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber)
+    const userFirstNumber = parseFloat(prompt('Введіть перше значення'));
+    const userSecondNumber = parseFloat(prompt('Введіть друге значення'));
+    const userThirdNumber = parseFloat(prompt('Введіть третє значення'));
+    const userFourNumber = parseFloat(prompt('Введіть четверте значення'));
+
+    const numbersSum = sum(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber);
+    const numberMultiplication = mult(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber);
+    const averageValue = average(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber);
+    const minimalValue = minValue(userFirstNumber,userSecondNumber,userThirdNumber,userFourNumber);
+    
+    document.write(`Сума чисел = ${numbersSum}<br>`)
+    document.write(`Добуток чисел = ${numberMultiplication}<br>`)
+    document.write(`Середнє значення = ${averageValue}<br>`)
+    document.write(`Мінімальне значення = ${minimalValue}<br>`)
 
   </script>
 </body>

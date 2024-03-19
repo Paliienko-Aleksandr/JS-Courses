@@ -14,78 +14,71 @@
     </p>
     <script>
 
-      const numberOfMonth = parseInt(prompt('Введіть номер місяца'))
-      let resultTime;
-     
       function getTimeOfYear() {
+
+      let resultTime;
+
       if (numberOfMonth >= 1 && numberOfMonth <= 12) {
         switch(numberOfMonth) {
           case 1: 
           resultTime = "Cічень";
-          document.write(`${resultTime}`);
           break
 
           case 2: 
           resultTime = "Лютий";
-          document.write(`${resultTime}`);
           break
 
           case 3: 
           resultTime = "Березень";
-          document.write(`${resultTime}`);
           break
 
           case 4: 
           resultTime = "Квітень";
-          document.write(`${resultTime}`);
           break
 
           case 5: 
           resultTime = "Травень";
-          document.write(`${resultTime}`);
           break
 
           case 6: 
           resultTime = "Червень";
-          document.write(`${resultTime}`);
           break
 
           case 7: 
           resultTime = "Липень";
-          document.write(`${resultTime}`);
           break
 
           case 8: 
           resultTime = "Серпень";
-          document.write(`${resultTime}`);
           break
 
           case 9: 
           resultTime = "Вересень";
-          document.write(`${resultTime}`);
           break
 
           case 10: 
           resultTime = "Жовтень";
-          document.write(`${resultTime}`);
           break
 
           case 11: 
           resultTime = "Листопад";
-          document.write(`${resultTime}`);
           break
 
           case 12: 
           resultTime = "Грудень";
-          document.write(`${resultTime}`);
           break
         }
       }else {
-        document.write(`Ведіть коректний номер місяця`)
+        resultTime = "Ведіть коректний номер місяця";
       }
+      return resultTime
     }
 
-    getTimeOfYear(numberOfMonth)
+    const numberOfMonth = parseInt(prompt('Введіть номер місяца'))
+    let getMonthNumber = getTimeOfYear(numberOfMonth)
+
+    document.write(`Зараз ${getMonthNumber}`)
+
     </script>
 </body>
 </html>

@@ -17,56 +17,45 @@
   </p>
   <script>
 
+   function getpairedNumber(userFirstNumber,userSecondNumber,userThirdNumber) {
+     let pairedNumCount = 0;
+      for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] % 2 === 0) pairedNumCount++
+      }
+      return pairedNumCount
+   }
+
+   function positiveNumber(userFirstNumber,userSecondNumber,userThirdNumber) {
+     let positiveNumbersCount = 0;
+      for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] > 0) positiveNumbersCount++
+      }
+      return positiveNumbersCount
+   }
+
+   function numberMore100(userFirstNumber,userSecondNumber,userThirdNumber) {
+     let numbersMore = 0;
+      for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] > 100) numbersMore++
+      }
+      return numbersMore
+   }
+
+   function getCommonValues(pairedNumber,positiveNumbers,numberMore) {
+      document.write(`Кількість парних: ${pairedNumber} <br>`);
+      document.write(`Кількість додатних: ${positiveNumbers} <br>`)
+      document.write(`Кількість більших за 100: ${numberMore}`)
+   }
+
     const userFirstNumber = parseInt(prompt('Введіть перше значення'));
     const userSecondNumber = parseInt(prompt('Введіть друге значення'));
     const userThirdNumber = parseInt(prompt('Введіть третє значення'));
 
-    let pairedNumCount = 0;
-    let positiveNumbersCount = 0;
-    let numbersMore = 0;
+    const pairedNumber = getpairedNumber(userFirstNumber,userSecondNumber,userThirdNumber);
+    const positiveNumbers = positiveNumber(userFirstNumber,userSecondNumber,userThirdNumber);
+    const numberMore =  numberMore100(userFirstNumber,userSecondNumber,userThirdNumber);
 
-    function setOfValues() {
-
-      // first number
-
-      if (userFirstNumber % 2 === 0) 
-        pairedNumCount++;
-
-      if (userFirstNumber > 0)
-        positiveNumbersCount++;
-
-      if (userFirstNumber > 100)
-        numbersMore++;
-
-        // second number
-
-      if (userSecondNumber % 2 === 0) 
-        pairedNumCount++;
-
-      if (userSecondNumber > 0)
-        positiveNumbersCount++;
-
-      if (userSecondNumber > 100)
-        numbersMore++;
-
-        // third number
-
-        if (userThirdNumber % 2 === 0) 
-        pairedNumCount++;
-
-      if (userThirdNumber > 0)
-        positiveNumbersCount++;
-
-      if (userThirdNumber > 100)
-        numbersMore++;
-
-        document.write(`Кількість парних чисел = ${pairedNumCount}<br> 
-                        Кількість додатних чисел = ${positiveNumbersCount}<br>
-                        Кількість більших за 100 = ${numbersMore}
-    `)
-    }
-
-    setOfValues(userFirstNumber,userSecondNumber,userThirdNumber)
+    const commonValues = getCommonValues(pairedNumber,positiveNumbers,numberMore)
 
   </script>
 </body>

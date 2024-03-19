@@ -14,45 +14,47 @@
     </p>
     <script>
 
-      const numberOfMonth = parseInt(prompt('Введіть номер місяца'))
+      function getTimeOfYear(numberOfMonth) {
+
       let resultTime;
-     
-      function getTimeOfYear() {
+
       if (numberOfMonth >= 1 && numberOfMonth <= 12) {
         switch(numberOfMonth) {
           case 12:
           case 1:
           case 2:
-          resultTime = "Це зима";
-          document.write(`${resultTime}`);
+          resultTime = "зима";
           break
 
           case 3:
           case 4:
           case 5:
-          resultTime = "Це весна";
-          document.write(`${resultTime}`);
+          resultTime = "весна";
           break
 
           case 6:
           case 7:
           case 8:
-          resultTime = "Це літо";
-          document.write(`${resultTime}`);
+          resultTime = "літо";
           break
 
           case 9:
           case 10:
           case 11:
-          resultTime = "Це осінь";
-          document.write(`${resultTime}`);
+          resultTime = "осінь";
           break
         }
       }else {
-        document.write(`Ведіть коректний номер місяця`)
+        resultTime = "Ведіть коректний номер місяця";
       }
+
+      return resultTime
      }
-     getTimeOfYear(numberOfMonth)
+     
+     const numberOfMonth = parseInt(prompt('Введіть номер місяца'));
+     let getMonthNumber = getTimeOfYear(numberOfMonth)
+
+     document.write(`Зараз ${getMonthNumber}`)
      
     </script>
 </body>
