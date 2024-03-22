@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 8 Задача 2</h1>
+
+  <p>
+    Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:
+      номери днів, протягом яких кількість відвідувачів була меншою за 20;
+      номери днів, коли кількість відвідувачів була мінімальною;
+      номери днів, коли кількість відвідувачів була мінімальною;
+      загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.
+
+  </p>
+  
+  <script>
+
+   const visitorsArray = [10,25,1,17,150,170,210]
+
+   function visitorsBelowTwenty(...visitorsArray) {
+     let belowTwenty = [];
+
+     for (let i=0; i < visitorsArray.length; i++) {
+      if(visitorsArray[i] < 20) {
+        belowTwenty.push(i+1)
+      }
+     }
+     return belowTwenty
+   }
+   const valueBelowTwenty = visitorsBelowTwenty(...visitorsArray)
+   document.write(`Номера днів коли відвідувачів було меньше ніж двадцять ${valueBelowTwenty}<br>`)
+
+   function daysMinVisitors(...visitorsArray) {
+     let minVisitorsDays = [];
+     let minValues = visitorsArray[0];
+
+      for (let i = 1; i < visitorsArray.length; i++) {
+        if (visitorsArray[i] < minValues) {
+          minVisitorsDays.push(i + 1)
+        }
+      }
+    return minVisitorsDays
+   }
+   const indexMinVisitorsDay = daysMinVisitors(...visitorsArray)
+   document.write(`Номера днів коли відвідувачів була мінімальна кількість ${indexMinVisitorsDay}<br>`)
+
+   function daysMaxVisitors(...visitorsArray) {
+     let maxVisitorsDays = Math.max(...visitorsArray);
+     let maxVisitors = [];
+     let maxValues = visitorsArray[0];
+
+      for (let i = 0; i < visitorsArray.length; i++) {
+        if (visitorsArray[i] === maxVisitorsDays) {
+          maxVisitors.push(i+1)
+        }
+      }
+    return maxVisitors
+   }
+   const indexMaxVisitorsDays = daysMaxVisitors(...visitorsArray)
+   document.write(`Номера днів коли відвідувачів була максимальна кількість ${indexMaxVisitorsDays}<br>`)
+
+ 
+   function totalValueInWorkingDays(...visitorsArray) {
+    let valueInWorkingDay = 0;
+      for (day = 0; day < 5; day++) {
+        valueInWorkingDay += visitorsArray[day]
+      }
+      return valueInWorkingDay
+   }
+   const profitInWorkingDay = totalValueInWorkingDays(...visitorsArray);
+   document.write(`Загальний дохід в робочі дні = ${profitInWorkingDay} <br>`)
+
+   function totalValueInWeekendDays(...visitorsArray) {
+    let valueInWeekendDays = 0;
+      for (day = 5; day <= 6; day++) {
+        valueInWeekendDays += visitorsArray[day]
+      }
+      return valueInWeekendDays
+   }
+   const profitInWeekendDays = totalValueInWeekendDays(...visitorsArray);
+   document.write(`Загальний дохід в вихідні дні = ${profitInWeekendDays}`)
+
+  </script>
+</body>
+
+</html>

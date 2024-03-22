@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 8 Задача 4</h1>
+
+  <p>
+    Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+    •	починаються на букву «А»;
+    •	перша і остання літери співпадають;
+    •	складаються з більше ніш 5 символів;
+  </p>
+
+
+  <script>
+
+    const carNumberArray = ['AA9634BM', 'BM8596IB', 'AH5236NA', 'IB2356MC', 'KN45', 'MN15']
+
+    function firsLetter(...carNumberArray) {
+      let findLetter = 0;
+
+      for (let i = 0; i < carNumberArray.length; i++) {
+        if (carNumberArray[i][0] === 'A' || carNumberArray[i][0] === 'a') {
+          findLetter++
+        }
+      }
+      return findLetter
+    }
+    const findLetterCount = firsLetter(...carNumberArray);
+    document.write(`Кількість номерів, які починаються з літери "A" = ${findLetterCount}<br>`)
+
+
+    function sameFirstAndLastLetter(...carNumberArray) {
+      let sameLetter = 0;
+
+      for (let i = 0; i < carNumberArray.length; i++) {
+        if (carNumberArray[i][0] === carNumberArray[i][carNumberArray[i].length-1]) {
+          sameLetter++
+        }
+      }
+      return sameLetter
+    }
+    const sameLetterCount = sameFirstAndLastLetter(...carNumberArray);
+    document.write(`Кількість номерів, у яких співпадають перша та остання літери = ${sameLetterCount} <br>`);
+
+    function moreThanFive(...carNumberArray) {
+      let countElement = 0;
+
+      for (let i = 0; i < carNumberArray.length; i++) {
+        if(carNumberArray[i].length > 5) {
+          countElement++
+        }
+      }
+      return countElement
+    }
+    const moreThanFiveElement = moreThanFive(...carNumberArray);
+    document.write(`Кількість номерів, кількість символів, в яких перевищує 5 = ${moreThanFiveElement}`);
+
+  </script>
+</body>
+</html>
