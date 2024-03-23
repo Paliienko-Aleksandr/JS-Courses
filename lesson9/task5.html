@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 9 Задача 5</h1>
+
+  <p>
+    Дано масив елементів. Знайти добуток додатних елементів
+  </p>
+
+
+  <script>
+
+   const numberList = [20,-150,25,-1,101,100.5,-255,100,-36,89,178.6]
+
+   function numbersMore100(...numberList) {
+      let multiplicationNumber = 1;
+
+      for (el of numberList) {
+        if(el > 0) {
+          multiplicationNumber *= el
+        }
+      }
+      return multiplicationNumber
+   }
+   const finalList = numbersMore100(...numberList)
+
+   document.write(`Добуток додатних чисел =  ${finalList}`)
+
+
+  </script>
+</body>
+</html>

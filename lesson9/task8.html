@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 9 Задача 6</h1>
+
+  <p>
+    Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+  </p>
+
+  <script>
+
+  const carNumberArray = ['AA9634BM', 'BM8596IB', 'AH5236NA', 'IB2356MC', 'KN45', 'MN15'];
+
+  const newCarNumberArray = carNumberArray.filter(el => el[0] === 'A' || el[0] ==='a')
+
+    document.write(newCarNumberArray)
+
+  </script>
+</body>
+</html>

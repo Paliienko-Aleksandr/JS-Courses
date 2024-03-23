@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 9 Задача 6</h1>
+
+  <p>
+    Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.
+  </p>
+
+
+  <script>
+
+   const priceList = [333, 1001, 7789, 235, 689, 2500]
+
+   function roundTwoSymbols(number) {
+    return number.toFixed(2);
+}
+    priceList.forEach((el,index,baseArray) => {
+      if(el > 1000) {
+        baseArray[index] = roundTwoSymbols(el*0.7)
+      }
+    })
+
+   document.write(`Змінений масив з урахуванням 30% знижки для товарів, ціна на які більш ніж 1000грн = ${priceList}`)
+
+  </script>
+</body>
+</html>
