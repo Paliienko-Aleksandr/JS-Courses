@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 10 Задача 4</h1>
+
+  <p>
+    5) Підрахувати кількість змін цін
+  </p>
+
+  <script>
+
+  function randomPrice (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) +min)
+  }
+  
+  const securitiesPricesList = new Array(12);
+
+  for (let i = 0; i < securitiesPricesList.length; i++) {
+    securitiesPricesList[i] = randomPrice(1,10000)
+  }
+
+  document.write(`Основний масив <br> ${securitiesPricesList} <br><br>`)
+
+    // --------------зміна ціни ----------------------
+  
+  function changesOfPrice(securitiesPricesList) {
+    let counChanges = 0;
+
+    securitiesPricesList.reduce((prevPrice, currentPrice) => {
+      if (prevPrice !== currentPrice) {
+        counChanges ++
+      }
+    },0)
+    return counChanges
+  }
+  const count = changesOfPrice(securitiesPricesList)
+  document.write(`Кількість змін ціни = ${count}`)
+  
+  
+  </script>
+</body>
+</html>

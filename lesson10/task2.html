@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 10 Задача 2</h1>
+
+  <p>
+      2) Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+  </p>
+
+  <script>
+
+  function randomPrice (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) +min)
+  }
+  
+  const securitiesPricesList = new Array(12);
+
+  for (let i = 0; i < securitiesPricesList.length; i++) {
+    securitiesPricesList[i] = randomPrice(1,10000)
+  }
+  document.write(`Основний масив <br> ${securitiesPricesList} <br><br>`)
+
+    // -------------- Масив індексів цін, які більше 1000 ----------------------
+    
+ let filteredIndexOfPriceMore1000 =  securitiesPricesList.map((price,index) => {
+    if (price > 1000) return index
+  }).filter((index) => index !== undefined)
+  
+  document.write(`Масив індексів цін, які більше 1000: <br> ${filteredIndexOfPriceMore1000}`)
+  
+  </script>
+</body>
+</html>

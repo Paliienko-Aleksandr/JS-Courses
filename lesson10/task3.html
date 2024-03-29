@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 10 Задача 3</h1>
+
+  <p>
+    3) Сформувати список з тих цін, які більші за попереднє значення
+  </p>
+
+  <script>
+
+  function randomPrice (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) +min)
+  }
+  
+  const securitiesPricesList = new Array(12);
+
+  for (let i = 0; i < securitiesPricesList.length; i++) {
+    securitiesPricesList[i] = randomPrice(1,10000)
+  }
+
+  document.write(`Основний масив <br> ${securitiesPricesList} <br><br>`)
+
+    // --------------Сформувати список з тих цін, які більші за попереднє значення ----------------------
+    
+  const priceListMorePrevious = securitiesPricesList.filter((price,index,baseArr) => {
+    return index > 0 && price > baseArr[index-1]
+  })
+  document.write(`Новий масив з цінами, що більші за попереднє значення <br> ${priceListMorePrevious}`)
+  
+  </script>
+</body>
+</html>

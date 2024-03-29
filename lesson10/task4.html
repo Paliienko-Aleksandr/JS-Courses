@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 10 Задача 4</h1>
+
+  <p>
+    4) Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+  </p>
+
+  <script>
+
+  function randomPrice (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) +min)
+  }
+  
+  const securitiesPricesList = new Array(12);
+
+  for (let i = 0; i < securitiesPricesList.length; i++) {
+    securitiesPricesList[i] = randomPrice(1,10000)
+  }
+
+  document.write(`Основний масив <br> ${securitiesPricesList} <br><br>`)
+
+    // --------------новий масив, що містить значення цін у відсотках стосовно максимального ----------------------
+  
+  let maxValue = Math.max(...securitiesPricesList)
+
+  const priceListInPercent = securitiesPricesList.map((el) => Math.floor(el/maxValue*100) + '%')
+
+  document.write(`Максимальне значення ${maxValue} <br>`)
+  document.write(`Масив у відсотковому виразі: <br>${priceListInPercent}`)
+  
+  </script>
+</body>
+</html>
