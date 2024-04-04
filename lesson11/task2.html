@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 11 Задача 2</h1>
+
+  <p>
+    Задача 2. 
+    Дано інформацію про прибуток К магазинів протягом тижня. Знайти :<br>
+      1) загальний прибуток кожного масиву за тиждень;<br>
+      2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);<br>
+      3) загальний прибуток за робочі дні<br>
+      4) загальний прибуток за вихідні дні<br>
+      5) максимальний прибуток за середу<br>
+      6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200<br>
+      7) відсортувати кожен тиждень за зростанням<br>
+      8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків<br>
+      8) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).<br>
+  </p>
+
+  <script>
+
+     const sallarylist = [
+      [1000,12,150,10,0,350,678],
+      [25,9,15,89,1,800,36],
+      [888,900,789,2,54,50,2],
+      [3,1,0,2,9,89,620]
+    ]
+
+    document.write(`-----------Загальний прибуток кожного масиву за тиждень ---------------<br><br>`)
+      function getTotalSum(sallarylist) {
+        let resultSum = 0;
+        
+        for (storeIndex = 0; storeIndex < sallarylist.length; storeIndex++) {
+          let storeSum = 0;
+
+          for (profitIndex = 0; profitIndex < sallarylist[storeIndex].length; profitIndex++) {
+            storeSum += sallarylist[storeIndex][profitIndex];
+          }
+          resultSum+=storeSum
+          document.write(`Прибуток магазина ${storeIndex + 1} за тиждень = ${storeSum}<br>`);
+        }
+         return resultSum
+    }
+    const getTotalSumResult = getTotalSum(sallarylist)
+    document.write(`<br><br>`)
+
+
+    
+    document.write(`----------Загальний прибуток усіх магазинів по дням------------------------<br><br>`)
+    function getTotalSumPerDay(sallarylist) {
+      let resultSum = 0;
+        
+        for (let storeIndex = 0; storeIndex < sallarylist[0].length; storeIndex++) {
+          let daySum = 0;
+
+          for (let profitIndex = 0; profitIndex < sallarylist.length; profitIndex++) {
+            daySum += sallarylist[profitIndex][storeIndex];
+          }
+          resultSum+=daySum
+          document.write(`Прибуток магазина ${storeIndex + 1} за тиждень = ${daySum}<br>`);
+        }
+         return resultSum
+    }
+    const getTotalSumPerDayResult = getTotalSumPerDay(sallarylist)
+    document.write(`<br><br>`)
+
+
+
+    document.write(`----------Загальний прибуток за робочі дні------------------------<br><br>`)
+    function getWorkDaySum(sallarylist) {
+        let resultSum = 0;
+        
+        for (storeIndex = 0; storeIndex < sallarylist.length; storeIndex++) {
+          for (profitIndex = 0; profitIndex < 5; profitIndex++) {
+            resultSum += sallarylist[storeIndex][profitIndex];
+          }
+        }
+         return resultSum
+    }
+    
+    const getWorkDaySumResult = getWorkDaySum(sallarylist)
+    document.write(`Загальний прибуток за робочі дні = ${getWorkDaySumResult}<br>`);
+    document.write(`<br><br>`)
+
+
+    document.write(`----------Загальний прибуток за вихідні дні------------------------<br><br>`)
+    function getRestDaySum(sallarylist) {
+        let resultSum = 0;
+        
+        for (storeIndex = 0; storeIndex < sallarylist.length; storeIndex++) {
+          for (profitIndex = 5; profitIndex < sallarylist[storeIndex].length; profitIndex++) {
+            resultSum += sallarylist[storeIndex][profitIndex];
+          }
+        }
+         return resultSum
+    }
+    
+    const getRestDaySumResult = getRestDaySum(sallarylist)
+    document.write(`Загальний прибуток за робочі дні = ${getRestDaySumResult}<br>`);
+    document.write(`<br><br>`)
+
+
+    document.write(`----------максимальний прибуток за середу------------------------<br><br>`)
+    function getMaxThursdaySum(sallarylist) {
+        let resultSum = 0;
+        
+        for (storeIndex = 0; storeIndex < sallarylist.length; storeIndex++) {
+          for (profitIndex = 2; profitIndex < 3; profitIndex++) {
+            resultSum = Math.max(sallarylist[storeIndex][profitIndex]) 
+          }
+        }
+         return resultSum
+    }
+    
+    const getMaxThursdaySumResult = getMaxThursdaySum(sallarylist)
+    document.write(`Максимальний прибуток за середу = ${getMaxThursdaySumResult}<br>`);
+    document.write(`<br><br>`)
+
+
+    document.write(`----------загальний список (одновимірний масив) зі значенням, які що більші за 200-----<br><br>`)
+    function getLinearArray(sallarylist) {
+        let resultSum = [];
+        
+        for (storeIndex = 0; storeIndex < sallarylist.length; storeIndex++) {
+          for (profitIndex = 0; profitIndex < sallarylist[storeIndex].length; profitIndex++) {
+           if (sallarylist[storeIndex][profitIndex] > 200) 
+              resultSum.push(sallarylist[storeIndex][profitIndex])
+          }
+        }
+         return resultSum
+    }
+    
+    const getLinearArrayResult = getLinearArray(sallarylist)
+    document.write(`загальний список зі значенням, які більші за 200 : <br> ${getLinearArrayResult}<br>`);
+    document.write(`<br><br>`)
+
+
+    document.write(`----------відсортувати кожен тиждень за зростанням-----<br><br>`)
+
+       const sortedList = sallarylist.map(week=>week.sort((a,b) => a-b));
+    
+    document.write(` ${sortedList}<br>`);
+    document.write(`<br><br>`)
+
+  </script>
+</body>
+</html>

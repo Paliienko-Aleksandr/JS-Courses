@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Урок 11 Задача 1</h1>
+
+  <p>
+    Задача 1. Знайти суми елементів у вказаній області
+      1.номери рядків від 0 до половини, стовпці від 0 до половини <br>
+      2.номери рядків від 0 до половини, стовпці від половини до кінця <br>
+      3.номери рядків (від половини до кінця, стовпці від 0 до половини <br>
+      4.номери рядків від половини до кінця , стовпці від половини до кінця <br>
+      5.Суму парних рядків <br>
+      6.Суму непарних стовпців <br>
+      7.У парних рядках – непарні стовпці, у непарних – парні.
+  </p>
+
+  <script>
+
+    const sallarylist = [
+      [1,2,3,4,5,10],
+      [6,7,8,9,10,20],
+      [11,12,13,14,15,30],
+      [16,17,18,19,20,40]
+    ]
+
+    function getSum1(sallarylist) {
+      let resultSum = 0
+
+      for (let row = 0; row < sallarylist.length/2; row++) {
+        for (let col = 0; col < sallarylist[row].length/2; col++) {
+          resultSum += sallarylist[row][col]
+        }
+      }
+      return resultSum
+    }
+    const getSum1Result = getSum1(sallarylist)
+    document.write(`1. пункт задачі - сума рядків від 0 до половини, стовпці від 0 до половини = ${getSum1Result}<br>`)
+
+
+    function getSum2(sallarylist) {
+      let resultSum = 0;
+
+      for (let row = 0; row < sallarylist.length/2; row++) {
+        for (let col = sallarylist[row].length/2; col < sallarylist[row].length; col++) {
+          resultSum+=sallarylist[row][col]
+        }
+      }
+      return resultSum
+    }
+    const getSum2Result = getSum2(sallarylist)
+    document.write(`2. пункт задачі - сума рядків від 0 до половини, стовпці від половини до кінця = ${getSum2Result}<br>`)
+
+
+
+    function getSum3(sallarylist) {
+      let resultSum = 0;
+
+      for (let row = sallarylist.length/2; row < sallarylist.length; row++) {
+        for (let col = 0; col < sallarylist[row].length/2; col++) {
+          resultSum+=sallarylist[row][col]
+        }
+      }
+      return resultSum
+    }
+    const getSum3Result = getSum3(sallarylist)
+    document.write(`3. пункт задачі - сума рядків (від половини до кінця, стовпці від 0 до половини = ${getSum3Result}<br>`)
+
+
+    function getSum4(sallarylist) {
+      let resultSum = 0;
+
+      for (let row = sallarylist.length/2; row < sallarylist.length; row++) {
+        for (let col = sallarylist[row].length/2; col < sallarylist[row].length; col++) {
+          resultSum+=sallarylist[row][col]
+        }
+      }
+      return resultSum
+    }
+    const getSum4Result = getSum4(sallarylist)
+    document.write(`4. пункт задачі - сума рядків від половини до кінця , стовпці від половини до кінця = ${getSum4Result}<br>`)
+
+
+
+    function getSumPairedRows(sallarylist) {
+      let resultSum = 0;
+
+      for (let row = 0; row < sallarylist.length; row += 2) {
+        for (let col = 0; col < sallarylist[row].length; col++) {
+          resultSum+=sallarylist[row][col]
+        }
+      }
+      return resultSum
+    }
+    const getSumPairedRowsResult = getSumPairedRows(sallarylist)
+    document.write(`5. пункт задачі - сума парних рядків = ${getSumPairedRowsResult}<br>`)
+
+
+    function getSumNotpairedCols(sallarylist) {
+      let resultSum = 0;
+
+      for (let row = 0; row < sallarylist.length; row++) {
+        for (let col = 1; col < sallarylist[row].length; col +=2) {
+          resultSum+=sallarylist[row][col]
+        }
+      }
+      return resultSum
+    }
+    const getSumNotpairedColsResult = getSumNotpairedCols(sallarylist)
+    document.write(`6. пункт задачі - сума непарних стовпців = ${getSumNotpairedColsResult}<br>`)
+
+
+    function getMixedSum(sallarylist) {
+      let resultSum = 0;
+
+      for (let row = 0; row < sallarylist.length; row++) {
+        for (let col = 1; col < sallarylist[row].length; col +=2) {
+          if ((row % 2 === 0 && col % 2 !== 0) || (row % 2 !== 0 && col % 2 === 0)) {
+            resultSum+=sallarylist[row][col]
+          }
+        }
+      }
+      return resultSum
+    }
+    const getMixedSumResult = getMixedSum(sallarylist)
+    document.write(`7. пункт задачі - сума у парних рядках – непарних стовпців, у непарних – парних. = ${getMixedSumResult}<br>`)
+
+
+  </script>
+</body>
+</html>
