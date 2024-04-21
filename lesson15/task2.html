@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 15 Задача 2</h1>
+
+  <p>
+    Задача 2. Створити об’єкт «Авто». 
+
+      Поля(властивості)
+      Марка
+      Розмір бака
+      Кількість наявних літрів
+      Кількість місць
+      Кількість пасажирів
+
+      Методи (дії)
+      Заправка на вказану кількість літрів
+      Виведення кількості пасажирів
+      Додавання пасажирів
+      Висадка пасажирів
+  </p>
+
+  <script>
+
+    const auto = {
+      brand: 'Audi',
+      tankSize: 63,
+      availableLiters: 24,
+      maxNumberOfSeats: 4,
+      passengers: 1,
+
+      requiredLiters: function() {
+        let toFullTank = this.tankSize - this.availableLiters;
+
+        let litersForRefilling = parseInt(prompt('Введіть кількість літрів пального'));
+
+        if (litersForRefilling > toFullTank) {
+          alert(`Ви не можете заправити таку кількість літрів палива. Щоб заправити повний бак вам потрібно не більше ${toFullTank} літрів пального`)
+        }else {
+          alert(`Добре, зараз заправимо ${litersForRefilling} літри`)
+        }
+      },
+
+      passengersCount: function() {
+        let toFullPassengers = this.maxNumberOfSeats - this.passengers;
+
+        let plannedPassengers = parseInt(prompt('Введіть кількість пасажирів'));
+
+        if (plannedPassengers > toFullPassengers) {
+          alert(`Неможливо розмістити таку кількість пасажирів. Максимально ви можете розмістити ще ${toFullPassengers}`)
+        }else {
+          this.passengers += plannedPassengers
+          console.log(this.passengers)
+          alert(`Добре, ${plannedPassengers} пасажирів ви можете розмістити. Зараз в авто знаходиться ${this.passengers}`)
+        }
+      },
+
+      outPassengers: function() {
+        let planningOut = parseInt(prompt(`В даний момент у вас в машині ${this.passengers}. Скільки пасажирів ви хочете висадити?`));
+        let passengersLeft = this.passengers - planningOut;
+
+          if (passengersLeft < 0){
+            alert('В авто не має стільки пасажирів')
+            return
+          }  
+          alert(`В авто залишається ${passengersLeft}`)
+      }
+    }
+
+    auto.requiredLiters()
+    auto.passengersCount()
+    auto.outPassengers()
+
+  </script>
+</body>
+</html>

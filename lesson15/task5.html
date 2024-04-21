@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 15 Задача 5</h1>
+
+  <p>
+    адача 5. Розробити клас «Керівник танців»
+
+    Масив імен хлопців
+    Масив імен дівчат
+    Метод випадкового вибору імені хлопця
+    Метод випадкового вибору імені дівчини
+    Метод виведення пари для танців
+    Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+  </p>
+
+  <script>
+
+    
+    const boysList = ['John', 'Alex', 'Bob', 'Adam', 'Michail']
+    const girlsList = ['Anna', 'Jane', 'Olga', 'Alexa', 'Julia']
+
+
+    class CouplesOfDancers {
+      constructor(boysList,girlsList) {
+        this.boysList = JSON.parse(JSON.stringify(boysList));
+        this.girlsList = JSON.parse(JSON.stringify(girlsList));
+      }
+
+      getRandomBoys() {
+        let randomBoys = Math.floor(Math.random() * this.boysList.length);
+        return boysList[randomBoys]
+      }
+
+      getRandomGirls() {
+        let randomGirls = Math.floor(Math.random() * this.girlsList.length);
+        return girlsList[randomGirls]
+      }
+
+      getResult() {
+       let boyName = this.getRandomBoys();
+       let girlName = this.getRandomGirls();
+       document.write(`${boyName} + ${girlName}<br>`)
+      }
+
+      run() {
+				setInterval(() => this.getResult(), 5000)
+			}
+    }
+    let printPairs = new CouplesOfDancers(boysList,girlsList)
+    printPairs.run()
+
+  </script>
+</body>
+</html>

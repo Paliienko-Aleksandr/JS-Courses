@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 15 Задача 4</h1>
+
+  <p>
+    Розробити клас Baner
+
+      Масив об’єктів ( графічних зображень та посилань на сайти)
+
+      Метод випадкового вибору об’єкта (графічного зображення та посилання)
+      Метод виведення випадкового банера
+  </p>
+
+  <script>
+
+
+let bannerList = [
+    {
+      img: '<img src="../image/cisko.jpg"  style="width:500px">',
+      link: '<a target="blank" href="https://www.cisco.com/c/ru_ua/index.html">Cisco Ukraine</a>'
+    },
+    {
+      img: '<img src="../image/gucci.jpg"  style="width:500px">',
+      link: '<a target="blank" href="https://www.gucci.com">Gucci</a>'
+    },
+    {
+      img: '<img src="../image/honda.jpg"  style="width:500px">',
+      link: '<a target="blank" href="https://honda.ua/">Honda Ukraine</a>'
+    },
+    {
+      img: '<img src="../image/mac.jpg" style="width:500px">',
+      link: '<a target="blank" href="https://www.mcdonalds.com/ua/uk-ua.html">MC Donalds Ukraine</a>'
+    },
+    {
+      img: '<img src="../image/toyota.jpg"  style="width:500px">',
+      link: '<a target="blank" href="https://www.toyota.ua/">Toyota Ukraine</a>'
+    },
+  ]
+ 
+  class Banner {
+    constructor(bannerList) {
+      this.banner = JSON.parse(JSON.stringify(bannerList))
+    }
+
+    getRandom() {
+      let randomResult = Math.floor(Math.random() * this.banner.length);
+      return this.banner[randomResult]
+    }
+    printBanner(banner) {
+      document.write(`${banner.img} <br> ${banner.link}`)
+    }
+  }
+
+  let printRandomBanner = new Banner(bannerList)
+
+  printRandomBanner.printBanner(printRandomBanner.getRandom())
+
+  </script>
+</body>
+</html>

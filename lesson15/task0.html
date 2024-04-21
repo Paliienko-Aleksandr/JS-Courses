@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 15 Задача 0</h1>
+
+  <p>
+    Задача 0. Дано два об’єкта. Обидва містять масив цілих чисел. 
+    При цьому у одному з них є функція знаходження суми, 
+    а у іншому – функція для знаходження добутку тих, 
+    які знаходяться між заданими мінімальним і максимальних значенням.
+    Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+  </p>
+
+  <script>
+
+    let obj1 = {
+      arrList: [2,4,6,8,10,12],
+      getSum: function() {
+        return this.arrList.reduce((prevSum, el) => prevSum + el ,0)
+      }
+    }
+
+    let obj2 = {
+      arrList: [1,3,5,7,9,11],
+      getMultiply: function(minValue,maxValue) {
+        return this.arrList.slice(minValue,maxValue).reduce((prevEl, el) => prevEl * el ,1)
+      }
+    }
+
+    let sumForObj2 = obj1.getSum.call(obj2)
+    document.write(`Результат виклику метода getSum для obj2 = ${sumForObj2}<br>`)
+
+    let multiplyForObj1 = obj2.getMultiply.apply(obj1, [1,4])
+    document.write(`Результат виклику метода getMultiply для obj1 = ${multiplyForObj1}`)
+
+
+  </script>
+</body>
+</html>
