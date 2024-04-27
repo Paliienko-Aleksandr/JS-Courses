@@ -4,29 +4,45 @@
   box-sizing: border-box;
 }
 
-.wrapper {
+a {
+  text-decoration: none;
+  color: #515151;
+  transition: 0.3s ease;
+}
+
+a:hover {
+  color: #14cf09;
+  transition: 0s;
+}
+
+ol,ul {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin: 50px auto 0 auto;
-  width: 300px;
-  padding: 0 15px;
-  border: 1px solid #515151;
+  gap: 10px;
 }
 
-.wrapper-header {
-  text-align: center;
-  margin: 15px 0;
+body {
+  background: #ffff;
+  color: #515151;
 }
 
-.parameters,
-.total-value,
-.footer {
+.lesson_wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.footer {
-  padding: 15px 0 15px 0;
-  border-top: 1px dashed #515151;
+.lesson_item {
+  margin: auto;
+  width: 80%;
+  padding: 15px;
+  background-color: #ffff;
+  -webkit-box-shadow: 0px 3px 49px 14px rgba(0,0,0,0.07);
+-moz-box-shadow: 0px 3px 49px 14px rgba(0,0,0,0.07);
+box-shadow: 0px 3px 49px 14px rgba(0,0,0,0.07);
+}
+
+h1 {
+  text-align: center;
 }
