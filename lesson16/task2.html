@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 16 Задача 2</h1>
+
+  <p>
+    Створити клас TMoney для роботи з грошовими сумами. <br>
+    Сума повинна зберігатися у вигляді доларового еквіваленту. <br>
+    Реалізувати методи додавання/вилучення грошової маси, <br>
+    вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. <br>
+    Курс долара зберігати в окремому полі. <br>
+  </p>
+
+  <script>
+  "use strict";
+
+
+    class TMoney {
+
+        #exchangeRate
+
+        get ExchangeRate() {
+          return this.#exchangeRate
+        }
+
+        set ExchangeRate(value) {
+          if (value < 0) throw new Error('Курс не може бути від"ємним')
+          this.#exchangeRate = value
+        }
+
+        #userMoney
+
+        get UserMoney() {
+          return this.#userMoney
+        }
+
+        set UserMoney(value) {
+          if (value < 0) throw new Error('Сума грошей не може бути від"ємною')
+          this.#userMoney = (value / this.ExchangeRate).toFixed(2)
+        }
+
+        get moneyInUah() {
+          return this.UserMoney * this.ExchangeRate
+        }
+
+        constructor(userMoney, exchangeRate) {
+          this.ExchangeRate = exchangeRate;
+          this.UserMoney = userMoney;
+        }
+
+          addMoney(value) {
+            if (value < 0) throw new Error('Додана сума не може бути від"ємною')
+            return this.UserMoney = this.moneyInUah + value
+          }
+
+          withdroval(value) {
+            if (value < 0) throw new Error('Cума не може бути від"ємною')
+            if (value > this.moneyInUah) throw new Error('Cума зняття не може перевищувати суму на рахунку')
+
+            return this.UserMoney = this.moneyInUah - value
+          }
+
+          exchangeRateUAHIncrease100() {
+				    return (this.moneyInUah + 100) * this.ExchangeRate / this.moneyInUah;
+			    }
+
+          toString() {
+            return `
+            Курс USD = ${this.ExchangeRate}<br>
+            Cума грошей в USD = ${this.UserMoney}<br>
+            курсу долара, при якому сума у гривнях збільшиться на 100 = ${this.exchangeRateUAHIncrease100().toFixed(2)}
+            `
+          }
+    }
+
+    const initialCapital = new TMoney(10000,39)
+    initialCapital.addMoney(7250)
+    initialCapital.withdroval(1250)
+
+    document.write(initialCapital)
+
+  </script>
+</body>
+</html>

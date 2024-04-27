@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 16 Задача 3</h1>
+
+  <p>
+    Об’єкт “Фірма” (використати члени-класи)<br>
+            поля:<br>
+            назва фірми;<br>
+            дата заснування (рік, місяць);<br>
+            послуги (назва послуги, вартість, термін виконання);<br>
+            адреси філіалів (країна, місто, вулиця, номер будинку);<br>
+
+            методи:<br>
+            визначення кількості років існування фірми;<br>
+            виведення всіх філіалів фірми у вказаному місті;<br>
+            виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;<br>
+  </p>
+
+  <script>
+  // "use strict";
+
+   
+    class theFirm {
+
+      #firmName
+
+      get FirmName() {
+       return this.#firmName
+      }
+
+      set FirmName(name) {
+        if (name.length === 0) throw new Error('Поле з назвою компанії не може бути порожнім')
+        this.#firmName = name
+      }
+
+      constructor(firmName, foundationDate, services, branches) {
+        this.FirmName = firmName
+        this.FoundationDate = foundationDate
+        this.Services = services
+        this.Branches = branches
+      }
+
+      getWorkPeriod() {
+        let today = new Date();
+        return today.getFullYear() - this.FoundationDate.Year
+      }
+
+      getBranchByCity(city) {
+        return this.Branches.filter((el) => el.city === city)
+      }
+
+      getServicesByConditions(sum, time) {
+        return this.Services.filter(el => el.ServicePrice <= sum && el.WorkTime <= time)
+      }
+    }
+
+    class foundationDate {
+      #year
+
+      get Year() {
+        return this.#year
+      }
+
+      set Year(year) {
+        if (year.length < 4) throw new Error('Некоректний рік')
+        this.#year = year
+      }
+
+      #month
+
+      get Month() {
+        return this.#month
+      }
+
+      set Month(month) {
+        if (month < 1 || month > 12) throw new Error(`Некоректне значення місяца`)
+        this.#month = month
+      }
+
+      constructor(year, month) {
+        this.Year = year
+        this.Month = month
+      }
+
+      toString() {
+        return `${this.Year}/${this.Month}`
+      }
+    }
+
+    class services {
+      #nameOfService
+
+      get NameOfService() {
+        return this.#nameOfService
+      }
+
+      set NameOfService(value) {
+        if (value.length === 0) throw new Error('Поле послуги повинно бути заповнено')
+        this.#nameOfService = value
+      }
+
+      #servicePrice
+
+      get ServicePrice() {
+        return this.#servicePrice
+      }
+
+      set ServicePrice(value) {
+        if (value < 0) throw new Error('Ціна не може бути від"ємною')
+        this.#servicePrice = value
+      }
+
+      #workTime
+
+      get WorkTime() {
+        return this.#workTime
+      }
+
+      set WorkTime(value) {
+        if (value < 0) throw new Error('Термін виконання не може бути від"ємним')
+        this.#workTime = value
+      }
+
+      constructor(nameOfService, servicePrice, workTime) {
+        this.NameOfService = nameOfService
+        this.ServicePrice = servicePrice
+        this.WorkTime = workTime
+      }
+
+      toString() {
+        return `${this.NameOfService}, ${this.ServicePrice} грн, ${this.WorkTime} годин(и)`
+      }
+    }
+
+    class firmBranch {
+
+      constructor(country, city, street, house) {
+        this.country = country
+        this.city = city
+        this.street = street
+        this.house = house
+      }
+      toString() {
+        return `${this.country} ${this.city} ${this.street} ${this.house}`
+      }
+    }
+
+    let firm1 = new theFirm('Roga i Koputa', new foundationDate(1989,1),
+    [
+     new services('шиномонтаж', 560, 0.25),
+     new services('фарбування', 35600, 125),
+     new services('кузовні роботи', 58000, 58),
+     new services('прибирання авто', 250, 1),
+     new services('підкачка колес', 500, 1)
+    ],
+    [
+     new firmBranch('Україна','Київ','Закревського', 145),
+     new firmBranch('Україна','Житомир','Українська', 13),
+     new firmBranch('Україна','Львів','Козацька', 32),
+     new firmBranch('Україна','Київ','Володимирська', 26),
+    ]
+  )
+ let city = 'Київ';
+ let sum = 50000;
+ let time = 2
+
+
+ let workPeriod = firm1.getWorkPeriod()
+ let branchesWithConditions = firm1.getBranchByCity(city)
+ let servicesWithConditions = firm1.getServicesByConditions(sum, time)
+
+ console.log(servicesWithConditions)
+ console.log(branchesWithConditions)
+
+ document.write(`Фірма існує вже ${workPeriod} років<br><br>
+                 Адреса всіх філіалів у м.Київ:<br> ${branchesWithConditions.join('<br>')}<br><br>
+                 Перелік послуг, які можуть бути виконані за ${sum} грн та ${time} годин(у): <br>
+                 ${servicesWithConditions.join('<br>')}
+ `)
+
+  </script>
+</body>
+</html>
