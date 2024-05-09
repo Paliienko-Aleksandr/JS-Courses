@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 17 Задача 2</h1>
+
+  <p>
+    Створити службове авто (водій, марка, номер). <br>
+    Створити клас таким чином, щоб можна було створити тільки один екземпляр цього класу.
+  </p>
+
+  <script>
+  
+  class Car {
+
+    static carRef
+
+    constructor(driver, carBrand, carNumber) {
+
+      if (Car.carRef) return Car.carRef
+        this.driver = driver;
+        this.carBrand = carBrand;
+        this.carNumber = carNumber;
+
+        Car.carRef = this;
+    }
+
+     toString() {
+        return `
+          Водій: ${this.driver} <br>
+          Марка авто: ${this.carBrand} <br>
+          Реєстраційний номер авто: ${this.carNumber}
+          `
+     }
+  }
+
+  let firstCar = new Car('Piter', 'Chevrolet', 'MA954789DV')
+  let secondCar = new Car('John', 'Volvo', 'MC345BO')
+
+  document.write(firstCar)
+  document.write(`<br><br>`)
+  document.write(secondCar)
+
+  </script>
+</body>
+</html>

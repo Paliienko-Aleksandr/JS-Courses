@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 17 Задача 1</h1>
+
+  <p>
+    Створити клас, що дозволяє виконувати такі операції над масивами: <br>
+    знаходження кількості додатних, кількості від’ємних, кількість входжень деякого числа (статичні методи)
+  </p>
+
+  <script>
+  
+  class ArrayOperation {
+
+    static getPositiveNumbers(array) {
+      return array.reduce((prevElement, el) => el > 0 ? prevElement + 1: prevElement,0)
+    }
+
+    static getNegativetiveNumbers(array) {
+      return array.reduce((prevElement, el) => el < 0 ? prevElement + 1: prevElement,0)
+    }
+
+    static getCountEntries(array, number) {
+      return array.reduce((prevElement, el) => el === number ? prevElement + 1: prevElement,0)
+    }
+  }
+
+  let array1 = [-25, 25, 0, -0.5, 458, 21,-0.001, 56, 96.6]
+  let number = 21
+
+  document.write(`Перший масив ${array1}<br>`)
+  document.write(`Кількість додатніх чисел = ${ArrayOperation.getPositiveNumbers(array1)}<br>`)
+  document.write(`Кількість від"ємних чисел = ${ArrayOperation.getNegativetiveNumbers(array1)}<br>`)
+  document.write(`Кількість входжень чила ${number} = ${ArrayOperation.getCountEntries(array1, number)}`)
+
+  </script>
+</body>
+</html>
