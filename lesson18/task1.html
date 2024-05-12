@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 18 Задача 1</h1>
+
+  <p>
+    Розробити калькулятор
+  </p>
+
+  <label for="firstNumber">
+    First Number
+    <input type="number" id="firstNumber">
+  </label>
+  <label for="secondNumber">
+    Second Number
+    <input type="number" id="secondNumber">
+  </label>
+
+  <div class="buttonsList" style="display: flex; margin: 10px 0; gap: 5px;">
+    <button id="sum">Додати</button>
+    <button id="minus">Відняти</button>
+    <button id="multiplication">Помножити</button>
+    <button id="divide">Поділити</button>
+  </div>
+
+  <label for="result">
+    Результат
+    <input type="number" id="result">
+  </label>
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    calculator();
+  });
+
+
+  function calculator() {
+    const firstNum = document.getElementById('firstNumber');
+    const secondNum = document.getElementById('secondNumber');
+    const sumBtn = document.getElementById('sum');
+    const minusBtn = document.getElementById('minus');
+    const multBtn = document.getElementById('multiplication');
+    const divideBtn = document.getElementById('divide');
+    const resultValue = document.getElementById('result');
+
+    
+    sumBtn.addEventListener('click', () => {
+      if (firstNum.value === '' || secondNum.value === '')
+      throw new Error ('enter the number')
+      resultValue.value = parseFloat(firstNum.value) + parseFloat(secondNum.value)
+    })
+
+    minusBtn.addEventListener('click', () => {
+      if (firstNum.value === '' || secondNum.value === '')
+      throw new Error ('enter the number')
+      resultValue.value = parseFloat(firstNum.value) - parseFloat(secondNum.value)
+    })
+
+    multBtn.addEventListener('click', () => {
+      if (firstNum.value === '' || secondNum.value === '')
+      throw new Error ('enter the number')
+      resultValue.value = parseFloat(firstNum.value) * parseFloat(secondNum.value)
+    })
+
+    divideBtn.addEventListener('click', () => {
+      if (firstNum.value === '' || secondNum.value === '')
+      throw new Error ('enter the number')
+      resultValue.value = parseFloat(firstNum.value) / parseFloat(secondNum.value)
+    })
+  }
+
+  </script>
+</body>
+</html>

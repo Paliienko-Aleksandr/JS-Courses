@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Урок 18 Задача 2</h1>
+
+  <p>
+    Зробити конвертер валют (курси валют – константи у скрипті)
+  </p>
+
+  <div class="wrapper" style="display: flex; flex-direction: column;">
+    <label for="sumInUAH">
+    Сума в гривнях
+      <input type="number" id="sumInUAH">
+    </label>
+    <button id="conversion" style="width: 100px; margin: 10px 0;">Конвертація</button>
+  </div>
+  <div class="currency-wrapper" style="display: flex; flex-direction: column; gap: 5px;">
+    <label for="sumInEUR">
+      Сума в євро
+        <input type="number" id="sumInEUR">
+      </label>
+      <label for="sumInUSD">
+        Сума в доларах
+          <input type="number" id="sumInUSD">
+        </label>
+  </div>
+
+  <script>
+ document.addEventListener("DOMContentLoaded", (event) => {
+  currenyConverter();
+  });
+
+  function currenyConverter() {
+    const usdExchangeRate = 39.8;
+    const eurExchangeRate = 42;
+    
+    const sumInUAH = document.getElementById('sumInUAH');
+    const sumInEUR = document.getElementById('sumInEUR');
+    const sumInUSD = document.getElementById('sumInUSD');
+    const conversionButton = document.getElementById('conversion');
+
+    conversionButton.addEventListener('click', () => {
+       sumInEUR.value = parseFloat(sumInUAH.value) * eurExchangeRate
+       sumInUSD.value = parseFloat(sumInUAH.value) * usdExchangeRate
+    })
+  }
+
+  </script>
+</body>
+</html>
